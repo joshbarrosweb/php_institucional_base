@@ -1,0 +1,469 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body{
+	height: 100%;
+}
+
+img{
+	width: 100%;
+	max-width: 400px;
+}
+
+input{
+	border: 0;
+	outline: 0;
+}
+
+.center{
+	max-width: 1280px;
+	padding: 0 2%;
+	margin: 0 auto;
+}
+
+.w50{
+	padding: 0 2%;
+	width: 50%;
+}
+
+.w33{
+	width: 33.33%;
+	padding: 0 10px;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}
+
+
+.sucesso{
+	display: none;
+	position: fixed;
+	right: 20px;
+	top: 60px;
+	padding: 15px 2%;
+	z-index: 999;
+	width: 300px;
+	color: #008000;
+	font-weight: bold;
+	font-size: 17px;
+	background-color: #DFF2BF;
+}
+.overlay-loading{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background: rgba(0,0,0,0.4);
+}
+
+.overlay-loading{
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+header{
+	background: #3D437A;
+	padding: 20px 0;
+}
+
+header .logo{
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+	position: relative;
+	top: -5px;
+}
+
+.logo a{
+	text-decoration: none;
+	color: white;
+}
+
+nav.mobile{
+	display: none;
+}
+
+nav.desktop ul{
+	list-style-type: none;
+}
+
+nav.desktop ul li{
+	font-weight: 300;
+	font-size: 15px;
+	padding: 0 30px;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+nav.desktop ul li a{
+ 	color: #fff;
+	text-decoration: none;
+}
+
+.banner-container{
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+
+.banner-single{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+
+.overlay{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(51,51,51,0.6);
+	z-index: 2;
+}
+
+section.banner-container form{
+	width: 98%;
+	max-width: 600px;
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+section.banner-container form h2{
+	color: white;
+	font-weight: 300;
+	font-size: 30px;
+	text-align: center;
+}
+
+section.banner-container form input[type=email]{
+	width: 100%;
+	height: 66px;
+	margin-top: 10px;
+	background: white;
+	color: #333;
+	font-size: 22px;
+	padding-left: 10px;
+}
+
+section.banner-container form input[type=submit]{
+	width: 100%;
+	height: 66px;
+	margin-top: 10px;
+	background: navy;
+	color: white;
+	font-size: 22px;
+	cursor: pointer;
+	border: 0;
+}
+
+section.descricao-autor{
+	padding: 30px 0;
+}
+
+section.descricao-autor h2{
+	font-size: 28px;
+	font-weight: 400;
+}
+
+section.descricao-autor p{
+	font-size: 16px;
+	color: #444;
+	margin-top: 10px;
+}
+
+section.especialidades{
+	padding: 40px 0;
+	background: #E2E2E2;
+}
+
+section.especialidades h2.title{
+	font-size: 30px;
+	font-weight: 400;
+	color: #999;
+	text-align: center;
+}
+
+.box-especialidade{
+	margin: 20px 0;
+}
+
+.box-especialidade h3{
+	font-size: 40px;
+	color: #404580;
+	text-align: center;
+}
+.box-especialidade h4{
+	color: #BABABA;
+	text-align: center;
+	font-weight: 300;
+	font-size: 25px;
+}
+
+.box-especialidade p{
+	color: #444;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+section.extras{
+	padding: 30px 0;
+	background: #404580;
+}
+
+.servicos-container, .depoimentos-container{
+	padding: 0 50px;
+}
+
+section.extras .title{
+	color: white;
+	font-weight: 300;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+.depoimentos-single{
+	padding: 15px 0;
+	border-bottom: 1px solid #5056A0;
+}
+
+p.depoimento-descricao{
+	font-size: 15px;
+	color: white;
+	font-weight: 300;
+}
+
+p.nome-autor{
+	font-size: 15px;
+	color: white;
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+.servicos ul{
+	margin: 20px 0;
+	list-style-position: inside;
+}
+
+.servicos li{
+	margin-bottom: 15px;
+	font-size: 15px;
+	color: white;
+	font-weight: 300;
+}
+
+footer.fixed{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+footer{
+	background: #313462;
+	padding: 30px 0;
+}
+
+footer p{
+	color: white;
+	text-align: center;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+section.erro-404{
+	min-height: 600px;
+	padding: 70px 0;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+section.erro-404 h2{
+	text-align: center;
+	color: #444;
+	font-weight: 400;
+	border-top: 2px solid #444;
+	font-size: 28px;
+}
+
+section.erro-404 p{
+	font-size: 16px;
+	color: #444;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 8px;
+}
+
+section.erro-404 a{
+	color: #444;
+}
+
+.wraper-404{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	padding: 0 2%;
+	max-width: 1280px;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#map{
+	width: 100%;
+	height: 400px;
+}
+
+.contato-container{
+	text-align: center;
+	margin: 40px 0;
+}
+
+.contato-container input[type=text]{
+	margin: 8px 0;
+	width: 100%;
+	height: 40px;
+	padding-left: 8px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	max-width: 800px;
+	color: #444;
+}
+
+.contato-container textarea{
+	padding: 8px;
+	margin: 8px 0;
+	width: 100%;
+	height: 120px;
+	border: 1px solid #ccc;
+	padding-left: 8px;
+	font-size: 16px;
+	max-width: 800px;
+	resize: vertical;
+	color: #444;
+}
+
+.contato-container input[type=submit]{
+	background: navy;
+	width: 140px;
+	height: 40px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.bullets{
+	position: absolute;
+	z-index: 5;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.bullets span{
+	margin: 0 10px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #555;
+}
+
+.bullets span.active-slider{
+	background: red;
+}
+
+
+@media screen and (max-width: 768px){
+	img{
+		float: none !important;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.w33{
+		width: 100%;
+		padding: 20px;
+	}
+
+	.w50{
+		width: 100%;
+		padding: 20px;
+	}
+
+	.box-especialidade{
+		margin: 0;
+		padding: 40px 20px;
+	}
+}
+
+@media screen and (max-width: 700px){
+	nav.desktop{
+		display: none;
+	}
+
+	nav.mobile{
+		display: block;
+	}
+
+	.botao-menu-mobile{
+		font-size: 24px;
+		cursor: pointer;
+		color: white;
+	}
+
+	nav.mobile ul{
+		position: absolute;
+		left: 0;
+		top: 55px;
+		z-index: 3;
+		text-align: center;
+		display: none;
+		width: 100%;
+	}
+
+	nav.mobile li{
+		font-weight: 300;
+		font-size: 15px;
+		display: block;
+		background-color: white;
+		width: 100%;
+		border: 1px solid #ccc;
+		font-size: 17px;
+	}
+
+	nav.mobile li a{
+		color: #444;
+		text-decoration: none;
+	}
+
+}
