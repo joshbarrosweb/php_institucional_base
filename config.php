@@ -18,6 +18,8 @@
 
 	define('INCLUDE_PATH','http://localhost/php_institucional_alpha/');
 	define('INCLUDE_PATH_PAINEL', INCLUDE_PATH.'painel/');
+
+	define('BASE_DIR_PAINEL',__DIR__.'/painel');
 	
 	//Conectar com Banco de Dados (MYSQL)
 	define('HOST','localhost');
@@ -27,13 +29,32 @@
 
 	define('NOME_EMPRESA','Josh Barros Web');
 
-	function pegaCargo($cargo){
-		$arr = [
-			'0' => 'Normal',
-			'1' => 'Sub-Administrator',
-			'2' => 'Administrador'  
-		];
+	function pegaCargo($indice){
 
-			return $arr[$cargo];
+			return Painel::$cargos[$indice];
+	}
+
+	function selecionadoMenu($par){
+		$url = explode('/',@$_GET['url'])[0];
+		if($url == $par){
+			echo 'class="menu-active"';
+		}
+	}
+
+	function verificaPermissaoMenu($permissao){
+		if($_SESSION['cargo'] >= $permissao){
+			return;
+		}else{
+			echo 'style="display:none;"';
+		}	
+	}
+
+	function verificaPermissaoPagina($permissao){
+		if($_SESSION['cargo'] >= $permissao){
+			return;
+		}else{
+			include('painel/pages/permissao_negada.php');
+			die();
+		}
 	}
 ?>

@@ -1,5 +1,6 @@
 <?php include('config.php'); ?>
 <?php Site::updateUsuarioOnline(); ?>
+<?php Site::contador(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -44,6 +45,7 @@
 					<li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
 					<li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
 					<li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+					<li><a href="<?php echo INCLUDE_PATH; ?>painel">Painel</a></li>
 				</ul>
 			</nav>
 
