@@ -26,17 +26,22 @@
 		}else if($imagem['name'] == ''){
 			Painel::alert('erro','A imagem precisa estar selecionada');
 		}else{
-			if($cargo < $_SESSION['cargo']){
+			if($cargo >= $_SESSION['cargo']){
 				Painel::alert('erro','Você precisa selecionar um cargo menor que o seu!');
 			}else if(Painel::imagemValida($imagem) == false){
 				Painel::alert('erro','O formato especificado não está correto');
-			}else if(Painel::userExists($login)){
+			}else if(Usuario::userExists($login)){
 				Painel::alert('erro','O login já existe, selecione outro por favor!');
 			}else{
 				$usuario = new Usuario();
-				Painel::alert('sucesso','Atualizado com sucesso!');
+				$imagem = Painel::uploadFile($imagem);
+				$usuario->cadastrarUsuario($login, $senha, $imagem, $nome, $cargo);
+				Painel::alert('sucesso','O cadastro do usuario '.$login.' foi feito com sucesso!');
 			}
 		}
+
+
+
 	}
 ?>
 	<div class="form-group">
@@ -65,7 +70,7 @@
 		<input type="file" name="imagem">
 	</div>
 		<div class="form-group">
-		<input type="submit" name="acao" value="Atualizar">
+		<input type="submit" name="acao" value="Cadastrar">
 	</div>
 </form>
 </div>

@@ -13,6 +13,7 @@
 		}
 
 		public static function logout(){
+			setcookie('lembrar','true',time()-1,'/');
 			session_destroy();
 			header('Location: '.INCLUDE_PATH_PAINEL);
 		}
@@ -66,14 +67,51 @@
 			}
 		}
 			public static function uploadFile($file){
-				if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$file['name']))
-					return $file['name'];
+				$formatoArquivo = explode('.',$file['name']);
+				$imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
+				if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$imagemNome))
+					return $imagemNome;
 				else
 					return false;
 				}
 
 			public static function deleteFile($file){
 				@unlink(BASE_DIR_PAINEL.'/uploads/'.$file);
+			}
+
+			public static function insert($arr){
+				$certo = true;
+				$nome_tabela = $arr['nome_tabela'];
+				$query = "INSERT INTO `$nome_tabela` VALUES (null";
+				foreach ($arr as $key => $value) {
+					$nome = $key;
+					$valor = $value;
+					if($nome == 'acao' || $nome == 'nome_tabela')
+						continue;
+					if($value == ''){
+						$certo = false;
+						break;
+					}
+					$query.=",?";
+					$parametros[] = $value;
+				}
+
+				$query.=")";
+				if($certo == true){
+					$sql = MySql::conectar()->prepare($query);
+					$sql->execute($parametros);
+				}
+				return $certo;
+			}
+
+			public static function selectAll($tabela,$start = null,$end = null){
+				if($start == null && $end == null)
+					$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela`");
+				else
+					$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` LIMIT $start,$end");
+
+				$sql->execute();
+				return $sql->fetchAll();
 			}
 		}
 

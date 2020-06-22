@@ -44,12 +44,12 @@
 			<a <?php selecionadoMenu('cadastrar-servico'); ?> href="">Cadastrar Serviços</a>
 			<a <?php selecionadoMenu('cadastrar-slides'); ?> href="">Cadastrar Slides</a>
 			<h2>Gestão</h2>
-			<a <?php selecionadoMenu('listar-depoimentos'); ?> href="">Listar Depoimentos</a>
+			<a <?php selecionadoMenu('listar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimento">Listar Depoimentos</a>
 			<a <?php selecionadoMenu('listar-servicos'); ?> href="">Listar Serviços</a>
 			<a <?php selecionadoMenu('listar-slides'); ?> href="">Listar Slides</a>
 			<h2>Administração do Painel</h2>
 			<a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>editar-usuario">Editar Usuários</a>
-			<a <?php selecionadoMenu('adicionar-usuarios'); ?> <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>
+			<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH_PAINEL ?>adicionar-usuario">Adicionar Usuários</a>
 			<h2>Configuração Geral</h2>
 			<a <?php selecionadoMenu('editar-site'); ?> href="">Editar Site</a>
 		</div>
@@ -62,7 +62,7 @@
 				<i class="fa fa-bars"></i>
 			</div>
 		<div class="logout">
-			<a href="<?php echo INCLUDE_PATH_PAINEL ?>"> <i class="fa fa-home"></i><span>Home</span></a>
+			<a <?php if(@$_GET['url'] == ''){?> style="background: #60727A; padding: 14px 15px 10px 15px;" <?php } ?> href="<?php echo INCLUDE_PATH_PAINEL ?>"> <i class="fa fa-home"></i><span>Home</span></a>
 			<a href="<?php echo INCLUDE_PATH_PAINEL ?>?logout"> <i class="fa fa-window-close"></i><span>Sair</span></a>
 		</div>
 
@@ -75,6 +75,7 @@
 
 		</div>
 		<script src="<?php echo INCLUDE_PATH ?>js/jquery.min.js"></script>
+		<script src="<?php echo INCLUDE_PATH_PAINEL ?>js/jquery.mask.js"></script>
 		<script src="<?php echo INCLUDE_PATH_PAINEL ?>js/main.js"></script>
 </body>
 </html>

@@ -241,16 +241,16 @@ div.box-usuario{
 	float: left;
 	position: relative;
 	width: 33.3%;
-	background: #F4B03E;
+	background: #3EB0F4;
 	border: 5px solid white;
 }
 
 .box-metricas .box-metrica-single:nth-of-type(2){
-	background: #E05C4E;
+	background: #E05CFF;
 }
 
 .box-metricas .box-metrica-single:nth-of-type(3){
-	background: #04A65A;
+	background: #5A04A6;
 }
 
 .box-metrica-wraper{
@@ -341,6 +341,18 @@ div.box-usuario{
 	border: 0;
 }
 
+.box-content form textarea{
+	margin-top: 8px;
+	font-size: 16px;
+	font-weight: normal;
+	color: black;
+	width: 100%;
+	height: 150px;
+	border: 1px solid #ccc;
+	padding: 8px;
+	resize: vertical;
+}
+
 .box-alert{
 	width: 100%;
 	height: 40px;
@@ -367,6 +379,78 @@ div.box-usuario{
 
 .menu-active::before{
 	content: '->';
+}
+
+.form-group-login label{
+	font-size: 13px;
+	font-weight: 300;
+	color: black;
+	padding-right: 6px;
+}
+
+.form-group-login:nth-of-type(2){
+	position: relative;
+	top: 10px;
+}
+.wraper-table{
+	overflow-x: auto;
+}
+
+table{
+	font-weight: 300;
+	min-width: 900;
+	margin: 20px 0;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table tr:nth-of-type(1){
+	background: #0091EA;
+	color: white;
+	padding: 20px;
+}
+
+table tr{
+	color: #555;
+	border-bottom: 1px solid #555;
+}
+
+table td{
+	padding: 8px;
+}
+
+table a.btn{
+	text-decoration: none;
+	padding: 4px 6px;
+	color: white;
+	font-size: 13px;
+}
+
+a.btn.delete{
+	background: #F4B03E;
+}
+
+a.btn.edit{
+	background: #E05C4E;
+}
+
+.paginacao{
+	text-align: center;
+	padding: 20px 0;
+}
+
+.paginacao a{
+	font-size: 14px;
+	margin: 0 8px;
+	display: inline-block;
+	padding: 3px 4px;
+	border: 1px solid #ccc;
+	text-decoration: none;
+	color: #777;
+}
+
+.paginacao a.page-selected{
+	background: rgb(220,220,220);
 }
 
 @media screen and (max-width: 1200px){

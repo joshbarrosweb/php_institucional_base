@@ -39,7 +39,7 @@
 
 </div>
 
-<div class="box-content w100">
+<div class="box-content w50 left">
 <h2><i class="fa fa-rocket"></i>Usuários Online</h2>
 	<div class="table-responsive">
 		<div class="row">
@@ -63,6 +63,40 @@
 			</div>
 			<div class="col">
 				<span><?php echo date('d/m/y  H:i:s',strtotime($value['ultima_acao'])) ?></span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<?php } ?>
+	</div>
+</div>
+
+<div class="box-content w50 right">
+<h2><i class="fa fa-rocket"></i>Usuários do Painel</h2>
+	<div class="table-responsive">
+		<div class="row">
+			<div class="col">
+				<span>Nome</span>
+			</div>
+			<div class="col">
+				<span>Cargo</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<?php
+			$usuariosPainel = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios`");
+			$usuariosPainel->execute();
+			$usuariosPainel = $usuariosPainel->fetchAll();
+			foreach ($usuariosPainel as $key => $value) {
+
+		?>
+
+		<div class="row">
+			<div class="col">
+				<span><?php echo $value['user'] ?></span>
+			</div>
+			<div class="col">
+				<span><?php echo pegaCargo($value['cargo']); ?></span>
 			</div>
 			<div class="clear"></div>
 		</div>
