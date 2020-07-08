@@ -1,5 +1,5 @@
 <div class="box-content">
-<h2><i class="fa fa-pencil"> Adicionar Usuário</i></h2>
+<h2><i class="fa fa-pencil"> Cadastrar Depoimento</i></h2>
 
 <form method="post" enctype="multipart/form-data">
 
@@ -28,6 +28,7 @@
 	</div>
 
 	<div class="form-group">
+		<input type="hidden" name="order_id" value="0">
 		<input type="hidden" name="nome_tabela" value="tb_site.depoimentos">
 		<input type="submit" name="acao" value="Cadastrar">
 	</div>

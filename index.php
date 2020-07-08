@@ -1,11 +1,16 @@
 <?php include('config.php'); ?>
 <?php Site::updateUsuarioOnline(); ?>
 <?php Site::contador(); ?>
+<?php
+	$infoSite = MySql::conectar()->prepare("SELECT * FROM `tb_site.config`");
+	$infoSite->execute();
+	$infoSite = $infoSite->fetch();
+?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Site Dinamico com MVC</title>
+		<title><?php echo $infoSite['titulo']; ?></title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<meta name="author" content="Josue Barros">
@@ -88,7 +93,7 @@
 
 			<script src="<?php echo INCLUDE_PATH; ?>js/jquery.min.js"></script>
 			<script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
-			<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
+			<!--<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>-->
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjGR2tzQY3-R8WM_VSxvWkwlo4ZiBhWCc&callback=initialize"></script>
 			<script src="<?php echo INCLUDE_PATH; ?>js/scriptmap.js"></script>
 			<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
